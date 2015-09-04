@@ -1,4 +1,9 @@
 .meteor/local
 .meteor/meteorite
 .npm/
-.idea/*
+.idea
+.name
+*.iml
+misc.xml
+modules.xml
+vcs.xml
