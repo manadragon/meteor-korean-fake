@@ -1,4 +1,4 @@
 .meteor/local
 .meteor/meteorite
 .npm/
-.idea/
+.idea/*
