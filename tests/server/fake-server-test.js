@@ -26,49 +26,56 @@ describe('sanjo:jasmine on server', function () {
   var charset = "euc-kr";
   var result;
 
-  describe('init test', function () {
-    it('Fake is defined', function (){
-      expect(Fake).toBeDefined();
-    });
-  });
-
-
-  describe('Fake.test data', function () {
-    // beforeEach는 it의 갯수만큼 읽는다는 것을 기억하자.
-    // beforeEach -> it, beforeEach -> it...
-
-    beforeEach(function (done) {
+  describe('Fake.test', function () {
+    beforeAll(function (done) {
       //spyOn(Fake, 'test').and.callThrough();
-      Fake.test(url, function (err, res) {
-        if (err) result = err;
-        else result = res;
+      //Fake.test(url, filter, charset, function (err, res) {
+      //  if (err) result = err;
+      //  else result = res;
+      //  done();
+      //});
+      Fake.test(function () {
         done();
       });
       //expect(fake).toBeDefined();
     });
 
-    it('Fake.test(url) return data is not exist. ', function () {
+    it('Fake is defined', function (){
+      expect(Fake).toBeDefined();
+    });
+
+    it('result.length equal 379. ', function () {
       //expect(true).toBe(false);
-      expect(result).toMatch('data is not exist');
-    });
-  });
-
-  describe('Fake.test data', function () {
-    // beforeEach는 it의 갯수만큼 읽는다는 것을 기억하자.
-    // beforeEach -> it, beforeEach -> it...
-
-    beforeEach(function(done) {
-      Fake.test(url, filter, function (err, res) {
-        if (err) result = err;
-        else result = res;
-        done();
-      });
+      expect(Fake.results().length).toEqual(379);
     });
 
-    it('Fake.test(url, filter) return data is not exist. ', function () {
+    it('result.length equal 379. ', function () {
       //expect(true).toBe(false);
-      expect(result).toMatch('data is not exist');
+      expect(Fake.results().length).toEqual(379);
     });
+
+    it('result.length equal 379. ', function () {
+      //expect(true).toBe(false);
+      expect(Fake.results().length).toEqual(379);
+    });
+
+    it('result.length equal 379. ', function () {
+      //expect(true).toBe(false);
+      expect(Fake.results().length).toEqual(379);
+    });
+
+    //
+    //it('get random text in result', function () {
+    //  var results = [];
+    //  do {
+    //    var random = Math.floor(Math.random() * result.length);
+    //
+    //    results.push(result[random]);
+    //  } while(result[random].substr(result[random].length -1 , 1) != ".");
+    //
+    //  expect(results.join(" ").substr(results.join(" ").length - 1, 1)).toMatch(".");
+    //});
+
   });
 });
 
